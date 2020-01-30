@@ -1,0 +1,5 @@
+service层
+    service层即业务逻辑层。
+    service层的作用为完成功能设计。
+    service层调用dao层接口，接收dao层返回的数据，完成项目的基本功能设计。
+    service层还分为接口和实现类

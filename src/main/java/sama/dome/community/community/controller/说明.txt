@@ -1,0 +1,4 @@
+controller层
+    controller层即控制层。
+    controller层的功能为请求和响应控制。
+    controller层负责前后端交互，接受前端请求，调用service层，接收service层返回的数据，最后返回具体的页面和数据到客户端。
