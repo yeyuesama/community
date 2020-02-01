@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>yeyue社区</title>
+    <title>彩虹教育论坛</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -26,7 +27,8 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login" th:if="${session.user==null}">登录</a></li>
-                <li><a href="#" th:if="${session.user ==null}">注册</a></li>
+                <li><a href="/registered" th:if="${session.user ==null}">注册</a></li>
+                <li><a href="/publish" th:if="${session.user !=null}">发布</a></li>
                 <li class="dropdown" th:if="${session.user!=null}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="${session.user.getNickname()}+'的空间'"> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -39,9 +41,9 @@
         </div>
     </div>
 </nav>
-<tr th:each = "userinfo:${all}">
-    <td th:text="${userinfo.getUserid()}" ></td>
-    <td th:text="${userinfo.getUsername()}" ></td>
-</tr>
+<!--<tr th:each = "userinfo:${all}">-->
+<!--    <td th:text="${userinfo.getUserid()}" ></td>-->
+<!--    <td th:text="${userinfo.getUsername()}" ></td>-->
+<!--</tr>-->
 </body>
 </html>

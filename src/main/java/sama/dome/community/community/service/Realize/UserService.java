@@ -21,4 +21,20 @@ public class UserService implements IuserService {
     public userinfo getuser(String name, String passwd) {
         return userMapper.getuser(name,passwd);
     }
+
+    @Override
+    public userinfo getuserByaccount(String account) {
+        return userMapper.getuserByaccount(account);
+    }
+
+    @Override
+    public Boolean adduser(userinfo userinfo) {
+        Boolean bo;
+        if (userMapper.adduser(userinfo)>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

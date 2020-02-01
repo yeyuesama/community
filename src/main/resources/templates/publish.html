@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>发布 - 彩虹教育论坛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/publish.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+        var poster = [[${poster}]];
+        console.log(">>>>", poster)
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">彩虹教育论坛</span>
+            </button>
+            <a class="navbar-brand" href="#">彩虹教育论坛</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索问题">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">主页</a></li>
+                <li><a href="/login" th:if="${session.user==null}">登录</a></li>
+                <li><a href="#" th:if="${session.user ==null}">注册</a></li>
+                <li class="dropdown" th:if="${session.user!=null}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false" th:text="${session.user.getNickname()}+'的空间'"> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">消息中心</a></li>
+                        <li><a href="#">个人资料</a></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发起帖子</h2>
+            <hr>
+            <form action="/publish" method="post">
+                <div class="form-group">
+                    <label for="title">帖子标题（简明扼要）：</label>
+                    <input type="text" th:value="${title}" class="form-control" id="title" name="title" placeholder="标题"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="discritpion">问题补充（必填，请参照右侧提示）：</label>
+                    <textarea name="discritpion" class="form-control" id="discritpion" cols="30"
+                              rows="10" th:text="${discritpion}" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tag">添加标签：</label>
+                    <input type="text" th:value="${tags}" class="form-control" id="tag" name="tags"
+                           placeholder="输入标签 以逗号隔开" required>
+                </div>
+                <span th:if="${msg}!=null" th:text="${msg}" class="alert alert-danger"></span>
+                <button type="submit" class="btn btn-success btn-publish">发布</button>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <h3>发帖指南</h3>
+            <p>▣ 注意：请您先登录再发帖，未登录将无发看到发布按钮</p>
+            <p>▣ 帖子标题：请用精简的遇难描述发布的内容，不超过25字</p>
+            <p>▣ 问题补充：详细秒速您要发起的内容，并保证描述清晰直观，可以提供一些相关的资料</p>
+            <p>▣ 选择标签：选择一个或者多个合适的标签，中间用逗号（，）隔开，每个标签不超过10个字</p>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    console.log(">>>>2", poster);
+    poster.title = "标题";
+    $("#title").val(poster.title)
+</script>
+</html>

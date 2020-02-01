@@ -1,7 +1,7 @@
 package sama.dome.community.community.model;
 
 public class userinfo {
-    private int userid;
+    private Integer userid;
     private String username;
     private String password;
     private String nickname;

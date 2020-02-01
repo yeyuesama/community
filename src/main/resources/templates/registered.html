@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>注册 - 彩虹教育论坛</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/registered.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">彩虹教育论坛</span>
+            </button>
+            <a class="navbar-brand" href="#">彩虹教育论坛</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">主页</a></li>
+                <li><a href="/login">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+
+    <form class="form-signin" action="/registered" method="post">
+        <h2 class="form-signin-heading">欢迎注册</h2>
+        <label for="inputEmail" class="sr-only">账号</label>
+        <input type="text" id="inputEmail" class="form-control textInput" placeholder="请编辑账号" th:value="${rename}" name="username" required
+               autofocus>
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="请编辑密码" name="password" required>
+        <label for="reinputPassword" class="sr-only">再次密码</label>
+        <input type="password" id="reinputPassword" class="form-control" placeholder="请再次输入密码" name="repassword"
+               required>
+        <label for="nickname" class="sr-only ">昵称</label>
+        <input type="text" id="nickname" class="form-control textInput" placeholder="请输入昵称"  th:value="${renickname}" name="nickname">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+    </form>
+    <span th:if="${remsg}!=null" th:text="${remsg}" class="alert alert-danger"></span>
+
+</div> <!-- /container -->
+</body>
+</html>

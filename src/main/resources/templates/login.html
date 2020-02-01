@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>登录</title>
+    <title>登录 - 彩虹教育论坛</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script th:inline="javascript">
+        var userInfo = [[${userInfo}]];
+    </script>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -28,7 +32,7 @@
 </nav>
 <div class="container">
 
-    <form class="form-signin" action="login.action" method="post">
+    <form class="form-signin" action="login" method="post">
         <h2 class="form-signin-heading">请登录</h2>
         <label for="inputEmail" class="sr-only">Account</label>
         <input type="text" id="inputEmail" class="form-control" placeholder="在此输入账号" name="account" required autofocus>
@@ -36,12 +40,31 @@
         <input type="password" id="inputPassword" class="form-control" placeholder="请输入密码" name="password" required>
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> 记住我
+                <input type="checkbox" value="rememberMe"> 记住我
             </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        <button id="test">test</button>
     </form>
 
 </div> <!-- /container -->
 </body>
+<script type="text/javascript">
+    console.log(">>1>", userInfo)
+    if (userInfo) {
+        $("#inputEmail").val(userInfo)
+    }
+    $("#test").click(function(){
+        $.ajax({
+            url: "/login123",
+            type: "post",
+            data: {account: "11", password: "22"},
+            success: function (ressult) {
+                console.log("res>>>", ressult)
+                $("#inputEmail").val("123")
+            }
+        })
+    })
+
+</script>
 </html>
