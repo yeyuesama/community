@@ -3,7 +3,7 @@
 <mapper namespace="sama.dome.community.community.mapper.PosterMapper">
 
 
-    <select id="selectAll" resultType="sama.dome.community.community.model.Poster">
+    <select id="selectAll" resultType="sama.dome.community.community.dto.PosterDTO">
         select * from postlist
     </select>
 </mapper>

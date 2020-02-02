@@ -2,6 +2,7 @@ package sama.dome.community.community.service.Realize;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sama.dome.community.community.dto.PosterDTO;
 import sama.dome.community.community.mapper.PosterMapper;
 import sama.dome.community.community.model.Poster;
 import sama.dome.community.community.service.IPostService;
@@ -24,7 +25,7 @@ public class PostService implements IPostService{
         return re;
     }
 
-    public List<Poster> selectAll() {
+    public List<PosterDTO> selectAll() {
         return posterMapper.selectAll();
     }
 }

@@ -36,6 +36,7 @@ public class RegisteredController {
             return "registered";
         } else {
             if (reuser.getPassword().equals(repassword)) {
+                reuser.setAvatarurl("https://bkimg.cdn.bcebos.com/pic/fcfaaf51f3deb48ff27285c8f31f3a292df57888?x-bce-process=image/watermark,g_7,image_d2F0ZXIvYmFpa2UyNzI=,xp_5,yp_5");
                 Boolean re = userService.adduser(reuser);
                 if (re) {
                     return "login";

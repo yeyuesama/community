@@ -4,4 +4,5 @@ import sama.dome.community.community.model.Poster;
 
 public interface IPostService  {
     Boolean addPost(Poster poster);
+
 }

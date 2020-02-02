@@ -5,6 +5,16 @@ public class userinfo {
     private String username;
     private String password;
     private String nickname;
+    private String avatarurl;
+
+    public String getAvatarurl() {
+        return avatarurl;
+    }
+
+    public void setAvatarurl(String avatarurl) {
+        this.avatarurl = avatarurl;
+    }
+
     public int getUserid() {
         return userid;
     }

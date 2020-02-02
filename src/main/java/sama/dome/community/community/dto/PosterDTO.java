@@ -1,9 +1,8 @@
-package sama.dome.community.community.model;
+package sama.dome.community.community.dto;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import sama.dome.community.community.model.userinfo;
 
-@TableName("postlist")
-public class Poster {
+public class PosterDTO {
     private Integer id;
     private String title;
     private String discritpion;
@@ -14,6 +13,7 @@ public class Poster {
     private Integer commentcount;
     private Integer viewcount;
     private Integer likecount;
+    private userinfo user;
 
     public Integer getId() {
         return id;
@@ -96,4 +96,15 @@ public class Poster {
     }
 
 
+
+
+
+
+    public userinfo getUser() {
+        return user;
+    }
+
+    public void setUser(userinfo user) {
+        this.user = user;
+    }
 }

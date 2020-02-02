@@ -16,6 +16,9 @@ public interface UserMapper {
     //查询user数据库中userinfo表里的所有数据
     @Select("select * from userinfo")
     List<userinfo> list();
+    //根据id查询用户
+    @Select("select * from userinfo where userid=#{id}")
+    userinfo getuserByid(Integer id);
     //根据用户提供的还在账号及密码验证用户是否存在
     @Select("select * from userinfo where (username=#{name} and password=#{passwd})")
     userinfo getuser(String name,String passwd);
@@ -23,6 +26,6 @@ public interface UserMapper {
     @Select("select * from userinfo where username=#{account}")
     userinfo getuserByaccount(String account);
     //添加用户
-    @Insert("insert into userinfo(username,password,nickname) values(#{username},#{password},#{nickname})")
+    @Insert("insert into userinfo(username,password,nickname,avatar_url) values(#{username},#{password},#{nickname},#{avatar_url})")
     int adduser(userinfo userinfo);
 }

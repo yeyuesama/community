@@ -53,11 +53,11 @@ public class PublishController {
         if (user != null) {
             if (poster != null) {
                 poster.setCreatorId(user.getUserid());
-                poster.setGmt_creat(System.currentTimeMillis());
-//            poster.setGmt_modifed(poster.getGmt_creat());
+                poster.setGmtcreat(System.currentTimeMillis());
+                poster.setGmtmodifed(poster.getGmtcreat());
                 Boolean re = postService.addPost(poster);
                 if (re) {
-                    return "index";
+                    return "redirect:/";
                 } else {
                     model.addAttribute("msg", "发布失败！");
                     return "publish";
